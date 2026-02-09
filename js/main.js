@@ -12,3 +12,16 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }));
+
+// Compatibility Note Toggle
+const compatToggle = document.getElementById('compatToggle');
+const compatNote = document.getElementById('compatNOte');
+
+if (compatToggle && compatNote) {
+    compatToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isHidden = compatNote.style.display === 'none';
+        compatNote.style.display = isHidden ? 'block' : 'none';
+        compatToggle.textContent = isHidden ? 'Hide Compatibility Information' : 'Read Compatibility Information';
+    });
+}

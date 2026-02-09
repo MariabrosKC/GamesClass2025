@@ -45,7 +45,8 @@ img {
 .navbar {
      
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
     background-color:#001E34;
@@ -57,12 +58,38 @@ img {
     z-index: 1000;
 }
 
+.nav-header{
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+   margin-bottom: 2rem;;
+}
+
+/* Position the logo absolutely on the left for desktop */
+.nav-header > a {
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-header h1 {
+    font-size: clamp(1rem, 3vw, 3rem);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
 .nav-logo {
+  /* Use clamp() for a fluid size that adapts to the viewport */
+    /* clamp(MINIMUM_SIZE, PREFERRED_SIZE, MAXIMUM_SIZE) */
+    width: clamp(4rem, 8vw, 10rem);
+    height: clamp(4rem, 8vw, 10rem);
     font-size: 1rem;
     font-weight: 700;
     color: var(--text-color);
     vertical-align: middle;
     border-radius: 50% ;
+   
 }
 
 
@@ -71,7 +98,7 @@ img {
    
     display: flex;
     list-style: none;
-    margin-right: 3rem;
+    margin-right: 0;
 }
 
 .nav-item {
@@ -115,18 +142,26 @@ img {
 
 /* --- Hero Section (Landing Page) --- */
 .hero {
-    height: 110vh;
+    
+    height: 90vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 35vh;
     text-align: center;
-    padding: 0 2rem;
+   /* padding: 0 2rem;*/
+    margin-top: 10px;
+    margin-bottom: 0%;
     background: linear-gradient(rgba(0, 30, 52, 0.7), rgba(0, 30, 52, 0.9)), url('https://via.placeholder.com/1920x1080/111/FFF?text=Cool+Background+Image') no-repeat center center/cover;
     /* Replace the placeholder URL above with your own background image */
 }
 
 .gold_text{
     color: #AD860C;
+}
+.hero-text {
+    
+   
 }
 
 .hero-text h1 {
@@ -346,6 +381,28 @@ footer {
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
+   
+    .navbar {
+        flex-direction: column;
+        justify-content:center;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .nav-header > a:first-child {
+        position: static;
+        transform: none;
+        margin-bottom: 2rem;
+    }
+
+    .nav-header h1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin-bottom: 10;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
